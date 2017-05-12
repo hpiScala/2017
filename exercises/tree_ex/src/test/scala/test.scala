@@ -3,7 +3,7 @@ import org.scalatest.FlatSpec
 class TreeSpec extends FlatSpec {
   import tree_ex._
 
-  val t = InnerNode(LeafNode(1), 2, LeafNode(3))
+  val t = Node(Node(Empty, 1, Empty), 2, Node(Empty, 3, Empty))
 
   it should "count correctly" in {
     assert(countNodes(t) == 3)
@@ -18,7 +18,7 @@ class TreeSpec extends FlatSpec {
   }
   
   it should "compute map" in {
-    assert(map((_: Int) + 1)(t) == InnerNode(LeafNode(2),3,LeafNode(4)))
+    assert(map((_: Int) + 1)(t) == Node(Node(Empty, 2, Empty), 3, Node(Empty, 4, Empty)))
   }
   
   it should "compute to list" in {

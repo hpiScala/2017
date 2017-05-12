@@ -2,7 +2,7 @@ class: middle, center
 # Scala Basics 1
 
 
-Object-orientated meets Functional
+Object-oriented meets Functional
 ---
 
 ## What is Scala?
@@ -39,7 +39,7 @@ Object-orientated meets Functional
 ## Lightweight Language
 
 --
-* **No return** statement needed and **no curly** braces needed for single line expressions
+* **No return** statement needed; **no curly** braces for single line expressions
 
 ```Scala
   def inc(x: Int): Int = x + 1
@@ -83,6 +83,14 @@ FP is often seen as a counter-model to **OOP**
 - Object-oriented programming - **encapsulate** state
 
 - Functional programming      - **avoid** state 
+
+```Scala
+  def fact(n: Int): Int = 
+    n match {
+      case 0 => 1
+      case n => n * fact(n - 1)}
+    }
+```
 
 ---
 
@@ -484,11 +492,11 @@ res0: String = John
 
 ```Scala
 package object tree {
-  sealed trait Tree[T]
+  sealed trait Tree[+T]
 
-  case class LeafNode[T](info: T) extends Tree[T]
+  case object Empty extends Tree[Nothing]
 
-  case class InnerNode[T](left: Tree[T], info: T, right: Tree[T])
+  case class Node[+T](left: Tree[T], info: T, right: Tree[T])
     extends Tree[T]
 }
 ```
@@ -499,8 +507,8 @@ package object tree {
 scala> import tree._
 import tree._
 
-scala> val t = InnerNode(LeafNode(3), 5, LeafNode(7))
-t: tree.InnerNode[Int] = InnerNode(LeafNode(3),5,LeafNode(7))
+scala> val t = Node(Empty, 5, Node(Empty, 6, Empty))
+t: Node[Int] = Node(Empty, 5, Node(Empty, 6, Empty))
 ```
 ---
 
