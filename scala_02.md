@@ -26,7 +26,10 @@ class Calculator(brand: String) {
 new Calculator("HP")
 new Calculator("TI")
 ```
---
+
+---
+## Object-Oriented Scala (2)
+
 
 * Additional constructors for classes
 
@@ -38,7 +41,7 @@ class Processor(dbConnection: java.sql.Connection, properties: Properties) {
 }
 ```
 ---
-## Object-Oriented Scala (2)
+## Object-Oriented Scala (3)
 
 * Fields: immutable and mutable
 ```Scala
@@ -52,7 +55,9 @@ class ImportantMessage {
 ```Scala
 class Processor(val dbConnection: java.sql.Connection, var properties: Properties)
 ```
---
+---
+## Object-Oriented Scala (3)
+
 * Traits for mixing in functionality
 * Pure data classes are best expressed as case classes:
   * Simple construction without `new`
@@ -86,8 +91,8 @@ def match() = {
   ...
 }
 ```
-
-* package object
+---
+## Package object
 
 ```Scala
 //in file org/foo/bar/package.scala
@@ -203,7 +208,7 @@ val c = myCar.color.getOrElse("undefined")
 ```
 
 ---
-## util.Try
+## Exceptions
 
 Scala supports try-catch blocks similarly to Java
 - catch block uses a partial function to specify how to deal with exceptions
@@ -219,7 +224,8 @@ def toInt(str: String): Option[Int] = {
 }
 ```
 
---
+---
+## util.Try
 
 Try[A] is either
 - an instance of the `Success[A](value: A)` case class
@@ -259,27 +265,22 @@ Common uses
 * Scala has a very rich collection API
 * Divided into immutable (default) and mutable
 
-<img alt="Scala Collection Hierarchy" src="resources/CollectionHierarchy.png" width="700">
+<img alt="Scala Collection Hierarchy" src="resources/CollectionHierarchy.png" width="500">
 
 * Functional approach to deal with collections of data
-* Creating collections:
 
 ```Scala
 scala> val list = List(1, 2, 3, 4)
 list: List[Int] = List(1, 2, 3, 4)
-
-scala> val seq = Seq(1, 2, 3, 4)
-seq: Seq[Int] = List(1, 2, 3, 4)
 
 scala> val set = Set(1, "2", 'c')
 set: scala.collection.immutable.Set[Any] = Set(1, 2, c)
 ```
 ---
 
-## Collection API - functional combinators
+## Collections - filter, find, partition
 
-- filter
-  - retrieves elements of a collection where the supplied predicate function evaluates to true
+- filter: retrieves elements of a collection where the supplied predicate function evaluates to true
 
 ```Scala
 
@@ -290,8 +291,7 @@ res: List[Int] = List(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23)
 
 --
 
-- find
-  - returns the first element of a collection that matches a predicate function
+- find: returns the first element of a collection that matches a predicate function
 
 ```Scala
 
@@ -300,8 +300,7 @@ res: Option[Int] = Some(7)
 
 ```
 --
-- partition
-  - splits a list based on where it falls with respect to a predicate function
+- partition: splits a list based on where it falls with respect to a predicate function
 
 ```Scala
 
@@ -310,10 +309,9 @@ res: (List[Int], List[Int]) = (List(0, 3, 6, 9),List(1, 2, 4, 5, 7, 8))
 
 ```
 ---
-## Collection API - functional combinators (2)
+## Collections - flatten
 
-- flatten
-  - collapses one level of a nested structure
+- flatten: collapses one level of a nested structure
 
 ```Scala
 scala> val nested = List(List.range(0,5), List.range(6,10))
@@ -327,7 +325,8 @@ res44: Option[Int] = Some(42)
 
 ```
 
---
+---
+## Collections - map
 - map
   - evaluates a function over each element in the collection, returning a collection with the same number of elements
   - works perfectly with Options, but pay attention to nesting as in the below example
@@ -349,7 +348,7 @@ res69: Option[Option[Car]] = Some(Some(Car(Trabant,None)))
 
 ```
 ---
-## Collection API - functional combinators (3)
+## Collections - flatMap
 
 - flatMap
   - combines map and flatten
@@ -384,7 +383,7 @@ res88: List[Int] = List(2)
 
 ```
 ---
-## Collection API - functional combinators (4)
+## Collections - folding
 - fold
 
    Deals with two things: a combining function, and a data structure (typically a list of elements)  
@@ -394,7 +393,11 @@ res88: List[Int] = List(2)
     - takes an associative binary operator **op**
     - and a neutral element **z** that must not change the result (eg.: 1 for multiplication) as it may be applied arbitrary number of times
     - returns the result of applying **op** between all the elements of the List and **z**, or **z** in case of an empty list
-  - the order in wich **op** is applied on elements is unspecified (that's why **op** has to be associative)
+
+---
+## Collections - folding (2)
+
+- fold: the order in wich **op** is applied on elements is unspecified (that's why **op** has to be associative)
 
 ```Scala
 val findMax = (x: Int, y: Int) => { val m = x max y; println(s"cp $x, $y -> $m"); m } 
@@ -409,7 +412,7 @@ res12: Int = 4
 ```
 
 ---
-## Collection API - functional combinators (5)
+## Collections - folding (3)
 
 - foldLeft
   - definition for List[A]: `def foldLeft[B](z: B)(op: (B, A) ⇒ B): B`  
@@ -425,7 +428,10 @@ cp 3, 4 -> 4
 res13: Int = 4
 
 ```  
---
+
+---
+## Collections - folding (4)
+
 - foldRight
   - definition for List[A]: `foldRight[B](z: B)(op: (A, B) ⇒ B): B`  
     - takes a binary operator **op**, and a start value **z** 
@@ -440,11 +446,12 @@ cp 1, 4 -> 4
 res14: Int = 4
 ```
 ---
-## Collection API - functional combinators (6)
+## Collections - reduce
 
 - reduce, reduceLeft, reduceRight
   - work the same way as their fold counterparts, but without the neutral/initial element **z**
   - due to the absence of **z** they throw exception for an empty list
+
 - reduceOption, reduceLeftOption, reduceRightOption
   - lifted versions of the reduce\* functions, ie. return *None* in case of empty list
 
@@ -470,12 +477,15 @@ res18: Option[Int] = None
 ## Covariance and Contravariance
 
 * T <: U means "T is a sub-type of U" or "T has type U as upper bound" (everything that can be done with U can also be done with T)
+
 * T >: U means "T is a super-type of U" or "T has type U as lower bound" (everything that can be done with T can also be done with U)
+
 * Covariance: A <: B => Type[A] <: Type[B]
+
 * Contravariance: A <: B => Type[B] <: Type[A]
 
-
-<center><img alt="Class diagram" src="resources/drinks.png" width="400"/></center>
+---
+## Covariance and Contravariance (2)
 
 ```Scala
 Glass[T]   // invariance
@@ -490,6 +500,8 @@ Function1[-T, +R] // contravariance (T: type of the parameter, R: return type)
 // with covariant typing we would have to provide a separate version of pasteur for Apple/PearJuice
 
 ```
+
+<center><img alt="Class diagram" src="resources/drinks.png" width="400"/></center>
 
 ---
 ## Covariance & Contravariance Example
@@ -521,23 +533,23 @@ res4: String = green
 ```
 ---
 
-## Error Handling
+## Error handling 
 
 * Java uses exceptions for error handling, which are difficult to use consistently
   * Where do you handle errors?
   * How do you distinguish between programmer errors (bugs) and user errors (wrong input)?
-* Scala wants you to handle errors more explicitly
-  * But exceptions still work (also because of Java compatibilty)
+* Scala wants you to handle errors more explicitly (but exceptions still work because of Java compatibilty)
+
+* Error Handling Options
+  * Option[T]: either Some[T] or None
+  * Try[T]: either Success[T] or Failure[T]
+  * Either[E,T]: either Left[E] (failure) or Right[T] (success)
+  * All of those can be use with `match`, `map`, `flatMap`, etc.
+  * Errors are passed down to the caller
 
 ---
 
-## Error Handling Options
-
-* Option[T]: either Some[T] or None
-* Try[T]: either Success[T] or Failure[T]
-* Either[E,T]: either Left[E] (failure) or Right[T] (success)
-* All of those can be use with `match`, `map`, `flatMap`, etc.
-* Errors are passed down to the caller
+## Error handling (2)
 
 ```Scala
 def divide(dividend: String, divisor: String): Try[Int] = { 
@@ -564,7 +576,7 @@ res10: scala.util.Try[Int] = Success(2)
 
 ```
 ---
-## Error handling options (2)
+## Error handling (3)
 
 - for comprehension can be used instead of flatMap
 
@@ -607,7 +619,10 @@ scala> printAge
 res20: String = Joe is 42 year(s) old
 
 ```
---
+
+---
+## Implicits (2)
+
 * beware, implicits are matched by type, name doesn't matter
 
 ```Scala
@@ -623,7 +638,7 @@ scala> printAge
        ^
 ```
 ---
-## Implicits (2)
+## Implicits (3)
 - Implicit classes
   - provide a way to add new behaviour to existing classes
   - have to be defined within a class, an object, or a package object
@@ -651,6 +666,14 @@ res22: String = Hello Joe, have a nice day!
   - any developer can declare that a type is a member of a type class simply by providing implementations of the operations the type must support
 - if *T* is member of the type class *C*, functions that have constrained one or more of their parameters to be members of *C* can be called with arguments of type *T*
 
+- code against a type class - verbose way vs syntactic sugar
+  - `def greet[T](x: T)(implicit evidence: CanSayHello[T]): Unit = println(evidence.sayHello(x))`
+  - `def greet[T:CanSayHello](x: T): Unit = println(implicitly[CanSayHello[T]].sayHello(x))`
+
+---
+
+## Type classes - definition
+
 ```Scala
 object SampleTypeClass {
   //the type class
@@ -669,20 +692,20 @@ object SampleTypeClass {
     }
   }
 }
-```
----
-## Type classes (2)
-- code against a type class - verbose way vs syntactic sugar
-  - `def greet[T](x: T)(implicit evidence: CanSayHello[T]): Unit = println(evidence.sayHello(x))`
-  - `def greet[T:CanSayHello](x: T): Unit = println(implicitly[CanSayHello[T]].sayHello(x))`
 
-```Scala
 object Greeter {
   import SampleTypeClass.CanSayHello
 
   def greet[T:CanSayHello](x: T): Unit = println(implicitly[CanSayHello[T]].sayHello(x))
 }
 
+```
+
+---
+## Type classes - usage
+
+
+```Scala
 import Greeter._
 
 scala> val xs = List("Joe", "Barney")
