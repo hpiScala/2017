@@ -7,6 +7,7 @@
 - [Scala 02](https://hpiscala.github.io/2017/?md=scala_02#1)
 - [Marmolata intro](https://hpiscala.github.io/2017/?md=marmolata_01#1)
 - [Marmolata UI](https://hpiscala.github.io/2017/?md=marmolata_ui#1)
+- [Marmolata Data](https://hpiscala.github.io/2017/?md=marmolata_data#1)
 
 ## Sandbox environments
 
