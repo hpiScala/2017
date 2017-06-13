@@ -21,7 +21,7 @@ Prerequisites:
 How to use:
 - Start the sandbox
 
-````bash
+```bash
 $ cd sandbox/ui
 $ make run
 
@@ -37,7 +37,7 @@ A minimal sandbox environment to play around with data code.
 How to use:
 - Start the sandbox
 
-````bash
+```bash
 $ cd sandbox/data
 $ make run
 
@@ -54,7 +54,7 @@ $ make run
 
 A simple, ui-only puzzle application
 
-````bash
+```bash
 $ cd templates/puzzle
 $ make run
 
@@ -69,7 +69,7 @@ A template application with UI and data code:
 - Data: simple server with configured DB access
 
 
-````bash
+```bash
 $ cd templates/ui_with_data
 $ make run
 
@@ -85,7 +85,7 @@ A template application with UI and data code:
 - Data: simple server with configured DB access
 
 
-````bash
+```bash
 $ cd templates/line_item_browser
 $ make run
 
