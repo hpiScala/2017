@@ -9,6 +9,10 @@
 - [Marmolata UI](https://hpiscala.github.io/2017/?md=marmolata_ui#1)
 - [Marmolata Data](https://hpiscala.github.io/2017/?md=marmolata_data#1)
 
+## Student assignments
+
+- [1 - Call center app](assignment_01.md)
+
 ## Sandbox environments
 
 ### UI sandbox
