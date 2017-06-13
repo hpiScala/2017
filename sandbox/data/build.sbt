@@ -25,7 +25,8 @@ lazy val dataSandbox: Project = (project in file("dataSandbox"))
   .settings(commonSettings:_*)
   .settings(
     libraryDependencies += "com.sap.marmolata" %% "app" % "hpi-2",
-    libraryDependencies += "com.sap.marmolata" %% "erp-custom-hpb" % "hpi-3"
+    libraryDependencies += "com.sap.marmolata" %% "erp-custom-hpb" % "hpi-3",
+    libraryDependencies += Dependencies.ngdbc.value % "compile,test,it"
   )
 
 lazy val root = (project in file("."))
