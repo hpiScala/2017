@@ -24,8 +24,8 @@ lazy val dataSandbox: Project = (project in file("dataSandbox"))
   .enablePlugins(MarmolataSbtPlugin)
   .settings(commonSettings:_*)
   .settings(
-    libraryDependencies += "com.sap.marmolata" %% "app" % "hpi-2",
-    libraryDependencies += "com.sap.marmolata" %% "erp-custom-hpb" % "hpi-3",
+    libraryDependencies += "com.sap.marmolata" %% "app" % "hpi-5",
+    libraryDependencies += "com.sap.marmolata" %% "erp-custom-hpb" % "hpi-6",
     libraryDependencies += Dependencies.ngdbc.value % "compile,test,it"
   )
 

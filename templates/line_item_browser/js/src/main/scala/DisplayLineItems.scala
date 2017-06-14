@@ -4,8 +4,9 @@ import com.sap.marmolata.ui.App
 
 import scala.language.existentials
 
-import com.sap.marmolata.app.{DefaultClientDataApi, MarmolataClient}
+import com.sap.marmolata.app.MarmolataClient
 import com.sap.marmolata.app.client.MarmolataShell
+import com.sap.marmolata.data.query.untyped.ClientDataApi
 import com.sap.marmolata.data.sql._
 import com.sap.marmolata.data.types._
 import com.sap.marmolata.erp._

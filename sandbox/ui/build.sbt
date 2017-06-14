@@ -28,11 +28,12 @@ lazy val uiSandbox: Project = (project in file("js"))
             libraryDependencies += Dependencies.scalatags.value,
             libraryDependencies += Dependencies.scalajs_jquery.value,
             libraryDependencies += Dependencies.shapeless.value,
-            libraryDependencies += "com.sap.marmolata" %%%! "ui" % "0.5.0-dev.120",
+            libraryDependencies += "com.sap.marmolata" %%%! "ui" % "hpi-11",
             jsDependencies += ProvidedJS / "Canvas.js",
             jsDependencies += ProvidedJS / "DatePeriodParser.js",
             jsDependencies += ProvidedJS / "DatePeriodPick.js",
             jsDependencies += ProvidedJS / "MarmolataListBinding-dbg.js",
+            jsDependencies += ProvidedJS / "ContainerTransition.js",
             jsDependencies += ProvidedJS / "MarmolataModel-dbg.js" dependsOn "MarmolataListBinding-dbg.js",  
             scalacOptions += "-Xfatal-warnings")
   .settings(commonSettings: _*)

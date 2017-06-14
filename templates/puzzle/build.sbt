@@ -39,13 +39,13 @@ lazy val main = (crossProject in file("."))
 lazy val mainJS = main.js
   .settings(commonSettings: _*)
   .settings(
-    libraryDependencies += "com.sap.marmolata" %%%! "app" % "hpi-1"
+    libraryDependencies += "com.sap.marmolata" %%%! "app" % "hpi-5"
   )
  
 lazy val mainJVM = main.jvm
   .settings(commonSettings: _*)
   .settings(
-    libraryDependencies += "com.sap.marmolata" %% "app" % "hpi-1"
+    libraryDependencies += "com.sap.marmolata" %% "app" % "hpi-5"
   )
 
 
