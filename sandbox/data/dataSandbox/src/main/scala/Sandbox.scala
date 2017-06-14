@@ -11,7 +11,7 @@ import scala.concurrent.duration._
 object DataSandbox   {
 
   implicit val jdbcConfig = JdbcSqlExecutionContext(
-    jdbcUrl="jdbc:sap://196.168.31.39:30215/?autocommit=false&currentschema=SAPHPB",
+    jdbcUrl="jdbc:sap://192.168.31.39:30215/?autocommit=false&currentschema=SAPHPB",
     jdbcUser=Some("STUDENTS"),
     jdbcPassword=Some("Enterprise2017"),
     sapClientId=Some("400")

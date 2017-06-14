@@ -3,6 +3,7 @@ import com.sap.marmolata.secureddata.dsl._
 object DisplayLineItemsAuthSemantics {
   val grantStatements = AuthSemanticsParser(
     """ grant select on BSEG
+        grant select on ACDOCA
         grant select on T001
         grant select on SKAT
         grant select on FINSC_LEDGER_REP
