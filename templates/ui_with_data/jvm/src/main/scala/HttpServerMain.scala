@@ -16,7 +16,7 @@ object HybridServer extends StandaloneBackend with ServletBackend with BinaryAPI
   implicit val sqlExecutor2 = SqlExecutor.Implicits.JdbcSqlExecutor
   
   type AT = AbapAuthorizationType
-  implicit def authContext(): AT#AuthContext = Future.successful{ErpUserContext("DEMO_USER", "HPB", "400", None)}
+  implicit def authContext(): AT#AuthContext = Future.successful{ErpUserContext("STUDENTS", "HE4", "400", None)}
   implicit def securityHandler(): DataSecurityHandler[AT] = DataSecurityHandler.handlerForAbapAuth
   implicit val dataAccess = new SecuredDataAccessOnServer[AT](
     () => AuthSemantics.grantStatements
