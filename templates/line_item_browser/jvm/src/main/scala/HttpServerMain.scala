@@ -11,7 +11,7 @@ import scala.concurrent.{Future, ExecutionContext}
 
 
 @MarmolataServer(QueryExecAPI, QueryExecAPIImpl)
-object HybridServer extends StandaloneBackend with ServletBackend with BinaryAPIService {
+object HybridServer extends StandaloneBackend  with BinaryAPIService {
   implicit def executionContext: ExecutionContext = ExecutionContext.global
   implicit val sqlExecutor2 = SqlExecutor.Implicits.JdbcSqlExecutor
 

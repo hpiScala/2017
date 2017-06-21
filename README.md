@@ -13,6 +13,10 @@
 
 - [1 - Call center app](assignment_01.md)
 
+## Project import tutorial (IntelliJ IDEA)
+
+- [Import tutorial](import_tutorial.md)
+
 ## Sandbox environments
 
 ### UI sandbox
@@ -95,3 +99,4 @@ $ cd templates/line_item_browser
 $ make run
 
 ```
+
