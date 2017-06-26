@@ -12,6 +12,7 @@
 ## Student assignments
 
 - [1 - Call center app](assignment_01.md)
+- [2 - Credit calculator app](assignment_02.md)
 
 ## Project import tutorial (IntelliJ IDEA)
 
