@@ -242,7 +242,7 @@ btn.clicks.observe( _ => {
   visible := !visible.now
 })
 
-render(label above input above btn above helloLabel)
+val render = App().initialPage(Page().content(label above input above btn above helloLabel)).build
 ```
 
 ---
