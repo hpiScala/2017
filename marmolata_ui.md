@@ -227,6 +227,8 @@ val helloLabel = Label(
 
 ## Simple example - put together
 
+**This code may be tried out in the UI sandbox**
+
 ```scala
 val visible: Var[Boolean] = Var(false)
 val input = Input().initialValue("").build
@@ -271,6 +273,8 @@ render(label above input above btn above helloLabel)
 ---
 ## Table example - code
 
+**This code may be tried out in the UI sandbox**
+
 ```scala
     type Row = (String, String, Int)
     val input:Table[Row] =
@@ -302,6 +306,8 @@ render(label above input above btn above helloLabel)
 
 <img alt="Simple suggestion provider example" src="resources/ui_simple_suggestion.png" align="center" />
 
+**This code may be tried out in the UI sandbox**
+
 ```scala
 val suggestionProvider = SimpleSuggestionProvider.static(
   SimpleSuggestion("One").build(),
@@ -322,6 +328,8 @@ render(input)
 
 
 <img alt="Tabular suggestion provider example" src="resources/ui_tabular_suggestion.png" align="center" />
+
+**This code may be tried out in the UI sandbox**
 
 ```scala
 val suggestionProvider = TabularSuggestionProvider.static(
@@ -351,6 +359,8 @@ render(input)
 ## Layouts
 
 <img alt="Layouts" src="resources/ui_layouts.png" align="center" />
+
+**This code may be tried out in the UI sandbox**
 
 ```scala
 val label1 = Label("Label 1")
